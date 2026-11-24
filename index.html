@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Anthony Mx Perú 🇵🇪 | Mezclas en Vivo, Animación & Eventos</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            950: '#050505',
+                            900: '#0c0c0c',
+                            800: '#151515',
+                            700: '#222222',
+                        },
+                        gold: {
+                            300: '#fde08d',
+                            400: '#f5b041',
+                            500: '#d4af37',
+                            600: '#aa8220',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --gold-primary: #f5b041;
+            --gold-light: #fde08d;
+            --bg-black: #050505;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Degradado metálico dorado para títulos */
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #fff4cc 0%, #f5b041 48%, #b87d14 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 24px rgba(245, 176, 65, 0.22);
+        }
+
+        /* Tarjetas con borde dorado y elevación */
+        .gold-card {
+            background: linear-gradient(180deg, rgba(21, 21, 21, 0.94) 0%, rgba(10, 10, 10, 0.98) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.85), 0 0 20px rgba(245, 176, 65, 0.07);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gold-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 176, 65, 0.65);
+            box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.95), 0 0 28px rgba(245, 176, 65, 0.2);
+        }
+
+        .hero-radial-overlay {
+            background: radial-gradient(circle at 50% 30%, rgba(245, 176, 65, 0.22) 0%, rgba(160, 95, 15, 0.08) 45%, rgba(5, 5, 5, 0.98) 82%);
+        }
+
+        /* Ecualizador animado */
+        @keyframes eqBounce {
+            0%, 100% { transform: scaleY(0.35); opacity: 0.65; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+        .eq-bar {
+            animation: eqBounce 1.25s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        /* Inputs oscuros elegantes */
+        .dark-input {
+            background-color: #101010;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #ffffff;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .dark-input::placeholder {
+            color: #6b7280;
+        }
+        .dark-input:focus {
+            outline: none;
+            border-color: #f5b041;
+            box-shadow: 0 0 0 3px rgba(245, 176, 65, 0.18);
+        }
+
+        /* Optimización para impresión / Guardar PDF */
+        @media print {
+            body {
+                background-color: #050505 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-400 selection:text-black">
+
+    <!-- 1. BARRA SUPERIOR (NAVBAR) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-950/92 border-b border-gold-500/25 px-4 py-3 no-print">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Identidad y Número Oficial Visible -->
+            <div class="flex items-center gap-4">
+                <a href="#" class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-gold-400 animate-ping"></span>
+                    <div>
+                        <span class="font-display font-black tracking-wide text-sm sm:text-base gold-text-gradient uppercase block leading-none">
+                            DJ Anthony Mix Perú
+                        </span>
+                        <span class="text-[11px] font-semibold text-gray-300 tracking-widest uppercase">
+                            PERÚ 🇵🇪 • Oficial
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Número de contacto visible en pantalla -->
+                <a href="tel:+51954488195" 
+                   class="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gold-500/10 border border-gold-400/35 text-gold-300 text-xs font-bold hover:bg-gold-500/20 transition">
+                    <i class="fa-solid fa-phone-volume text-gold-400"></i>
+                    <span>+51 954 488 195</span>
+                </a>
+            </div>
+
+            <!-- Enlaces y Botones de Utilidad -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <!-- Enlace/Botón destacado: Contacto Rápido (Despliega o enfoca el panel superior) -->
+                <a href="#panelContactoSuperior" onclick="enfocarContactoSuperior(event)"
+                   class="text-xs sm:text-sm bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-black font-display font-extrabold px-3.5 py-2 rounded-xl shadow-lg hover:brightness-110 transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Contacto Rápido</span>
+                </a>
+
+                <!-- Botón Cambiar Fondo -->
+                <button type="button" onclick="activarSubidaFondo()" 
+                        class="text-xs sm:text-sm bg-dark-800 hover:bg-dark-700 text-gold-300 border border-gold-500/35 px-3 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer"
+                        title="Cargar imagen de fondo desde tu galería">
+                    <i class="fa-solid fa-image text-gold-400"></i>
+                    <span class="hidden md:inline">Cambiar Fondo</span>
+                </button>
+
+                <!-- Botón Guardar PDF -->
+                <button type="button" onclick="guardarDocumentoPDF()" 
+                        class="text-xs sm:text-sm bg-dark-800 hover:bg-dark-700 text-gray-200 border border-gold-500/35 px-3 py-2 rounded-xl transition flex items-center gap-1.5 cursor-pointer"
+                        title="Exportar presentación a PDF">
+                    <i class="fa-solid fa-file-pdf text-gold-400"></i>
+                    <span class="hidden sm:inline">Guardar PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Input oculto para procesar archivos locales mediante FileReader -->
+    <input type="file" id="localFileInput" accept="image/*" class="hidden">
+
+    <!-- 2. SECCIÓN PRINCIPAL (HERO) CON FORMULARIO DE CONTACTO RÁPIDO INTEGRADO -->
+    <section id="panelContactoSuperior" class="relative min-h-[88vh] flex items-center justify-center overflow-hidden border-b border-gold-500/20">
+        <!-- Capa de imagen de fondo personalizable -->
+        <div id="heroBackgroundLayer" 
+             class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 transition-all duration-700"
+             style="background-image: radial-gradient(circle at center, #2c1e08 0%, #050505 100%);">
+        </div>
+
+        <!-- Degradados dorados y oscuros -->
+        <div class="absolute inset-0 hero-radial-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-dark-950/75"></div>
+
+        <!-- Acentos geométricos dorados en esquinas -->
+        <div class="hidden sm:block absolute top-0 right-0 w-36 h-2 bg-gradient-to-l from-gold-400 to-transparent"></div>
+        <div class="hidden sm:block absolute top-0 right-0 w-2 h-36 bg-gradient-to-b from-gold-400 to-transparent"></div>
+        <div class="hidden sm:block absolute bottom-0 left-0 w-36 h-2 bg-gradient-to-r from-gold-400 to-transparent"></div>
+        <div class="hidden sm:block absolute bottom-0 left-0 w-2 h-36 bg-gradient-to-t from-gold-400 to-transparent"></div>
+
+        <!-- Contenido Hero -->
+        <div class="relative z-10 max-w-5xl mx-auto px-5 py-14 text-center">
+            
+            <!-- Ecualizador animado -->
+            <div class="flex items-center justify-center gap-1.5 h-9 mb-5" aria-hidden="true">
+                <span class="w-1.5 h-4 bg-gold-400/70 rounded-full eq-bar" style="animation-delay: 0.05s"></span>
+                <span class="w-1.5 h-8 bg-gold-400 rounded-full eq-bar" style="animation-delay: 0.25s"></span>
+                <span class="w-1.5 h-5 bg-gold-300 rounded-full eq-bar" style="animation-delay: 0.45s"></span>
+                <span class="w-1.5 h-9 bg-gold-400 rounded-full eq-bar" style="animation-delay: 0.15s"></span>
+                <span class="w-1.5 h-5 bg-gold-500 rounded-full eq-bar" style="animation-delay: 0.35s"></span>
+                <span class="w-1.5 h-7 bg-gold-300 rounded-full eq-bar" style="animation-delay: 0.2s"></span>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-400/35 text-gold-300 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4">
+                <i class="fa-solid fa-headphones text-gold-400"></i>
+                <span>Mezclas en Vivo • Animación • Producción Audiovisual</span>
+            </div>
+
+            <h1 class="font-display font-black italic text-4xl sm:text-6xl md:text-7xl tracking-tight gold-text-gradient mb-3 leading-tight">
+                DJ Anthony Mix Perú 🇵🇪
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-gray-300 text-sm sm:text-lg leading-relaxed mb-6 font-light">
+                Llevamos el mejor espectáculo musical, animación interactiva, sonido de alta fidelidad e iluminación profesional para que tu fiesta sea inolvidable en todo el Perú.
+            </p>
+
+            <!-- Número Oficial de Contrataciones Destacado -->
+            <div class="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-2xl bg-dark-900/90 border border-gold-400/45 shadow-lg mb-8">
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Contrataciones Directas:</span>
+                <a href="https://wa.me/51954488195" target="_blank" rel="noopener noreferrer" 
+                   class="font-display font-black text-lg sm:text-xl text-gold-300 hover:text-gold-400 transition flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i>
+                    <span>+51 954 488 195</span>
+                </a>
+            </div>
+
+            <!-- CAJA INTERACTIVA SUPERIOR DE CONTACTO RÁPIDO A WHATSAPP -->
+            <div class="max-w-4xl mx-auto gold-card rounded-3xl p-5 sm:p-7 text-left border-gold-400/50 no-print">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-dark-700">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+                        <h2 class="font-display font-bold text-sm sm:text-base text-gold-300 uppercase tracking-wider">
+                            Contacto Rápido por WhatsApp
+                        </h2>
+                    </div>
+                    <span class="text-xs text-gray-400">Respuesta inmediata al <strong class="text-white">+51 954 488 195</strong></span>
+                </div>
+
+                <form id="heroQuickContactForm" onsubmit="enviarContactoRapidoWhatsApp(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5" novalidate>
+                    <!-- Nombre del cliente -->
+                    <div>
+                        <label for="quickNombre" class="block text-[11px] font-semibold text-gold-300 uppercase tracking-wider mb-1">
+                            Tu Nombre *
+                        </label>
+                        <input type="text" id="quickNombre" placeholder="Ej. Luis Ramírez" 
+                               class="dark-input w-full px-3.5 py-3 rounded-xl text-sm">
+                    </div>
+
+                    <!-- Número de Teléfono/WhatsApp del cliente -->
+                    <div>
+                        <label for="quickTelefono" class="block text-[11px] font-semibold text-gold-300 uppercase tracking-wider mb-1">
+                            Tu Teléfono / WhatsApp *
+                        </label>
+                        <input type="tel" id="quickTelefono" placeholder="Ej. 987 654 321" 
+                               class="dark-input w-full px-3.5 py-3 rounded-xl text-sm">
+                    </div>
+
+                    <!-- Tipo de Evento o Mensaje (Opcional) -->
+                    <div>
+                        <label for="quickEvento" class="block text-[11px] font-semibold text-gold-300 uppercase tracking-wider mb-1">
+                            Evento / Mensaje (Opcional)
+                        </label>
+                        <input type="text" id="quickEvento" placeholder="Ej. Boda, 15 años, Sábado..." 
+                               class="dark-input w-full px-3.5 py-3 rounded-xl text-sm">
+                    </div>
+
+                    <!-- Botón de envío directo a wa.me/51954488195 -->
+                    <div class="flex items-end">
+                        <button type="submit" 
+                                class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-display font-extrabold text-xs sm:text-sm uppercase tracking-wide shadow-lg shadow-green-900/30 transition flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Contactar por WhatsApp</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. HABILIDADES Y EQUIPAMIENTO PROFESIONAL DE DJ -->
+    <section id="habilidades" class="py-16 sm:py-24 px-5 max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+            <span class="text-gold-400 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase">Talento & Tecnología</span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2">
+                Habilidades y <span class="gold-text-gradient">Equipamiento Profesional</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 print-avoid-break">
+            
+            <!-- Habilidad 1: Mezclas en Vivo -->
+            <div class="gold-card rounded-3xl p-7 flex items-start gap-5">
+                <div class="w-14 h-14 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl shrink-0">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </div>
+                <div>
+                    <h3 class="font-display font-extrabold text-xl text-gold-300">Mezclas en Vivo (Open Format)</h3>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">
+                        Transiciones limpias, remixes exclusivos y lectura profesional de pista en todos los géneros: <strong>Salsa, Cumbia, Reggaetón, Electrónica, Pachanga, Rock & Pop</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Habilidad 2: Animación Profesional en Vivo -->
+            <div class="gold-card rounded-3xl p-7 flex items-start gap-5">
+                <div class="w-14 h-14 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl shrink-0">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                </div>
+                <div>
+                    <h3 class="font-display font-extrabold text-xl text-gold-300">Animación Profesional en Vivo</h3>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">
+                        Conducción dinámica de protocolos, interacción constante con tus invitados, concursos, brindis y conducción explosiva de <strong>Hora Loca</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Habilidad 3: Sonido Profesional de Alta Fidelidad -->
+            <div class="gold-card rounded-3xl p-7 flex items-start gap-5">
+                <div class="w-14 h-14 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl shrink-0">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <div>
+                    <h3 class="font-display font-extrabold text-xl text-gold-300">Sonido Profesional de Alta Fidelidad</h3>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">
+                        Controladores y consolas <strong>Pioneer DJ</strong>, sistema acústico de alta potencia con bajos profundos definidos y micrófonos inalámbricos UHF de largo alcance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Habilidad 4: Show de Luces LED y Efectos Especiales -->
+            <div class="gold-card rounded-3xl p-7 flex items-start gap-5">
+                <div class="w-14 h-14 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl shrink-0">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div>
+                    <h3 class="font-display font-extrabold text-xl text-gold-300">Show de Luces LED y Efectos Especiales</h3>
+                    <p class="text-gray-300 text-sm mt-2 leading-relaxed">
+                        Estructuras iluminadas, <strong>cabezas móviles robotizadas, láser multipunto, cámara de humo</strong> y ambientación arquitectónica sincronizada al ritmo de la música.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. EVENTOS PRIVADOS QUE CUBRE -->
+    <section id="eventos" class="py-16 bg-dark-900/50 border-t border-gold-500/15 px-5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-gold-400 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase">Cobertura Total</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2">
+                    Eventos Privados que <span class="gold-text-gradient">Cubrimos</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 print-avoid-break">
+                <div class="gold-card rounded-2xl p-5 text-center">
+                    <i class="fa-solid fa-heart text-gold-400 text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-sm text-white">Bodas y Matrimonios</h3>
+                </div>
+                <div class="gold-card rounded-2xl p-5 text-center">
+                    <i class="fa-solid fa-crown text-gold-400 text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-sm text-white">15 Años</h3>
+                </div>
+                <div class="gold-card rounded-2xl p-5 text-center">
+                    <i class="fa-solid fa-graduation-cap text-gold-400 text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-sm text-white">Promociones</h3>
+                </div>
+                <div class="gold-card rounded-2xl p-5 text-center">
+                    <i class="fa-solid fa-cake-candles text-gold-400 text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-sm text-white">Cumpleaños</h3>
+                </div>
+                <div class="gold-card rounded-2xl p-5 text-center">
+                    <i class="fa-solid fa-champagne-glasses text-gold-400 text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-sm text-white">Despedidas de Solteros</h3>
+                </div>
+                <div class="gold-card rounded-2xl p-5 text-center">
+                    <i class="fa-solid fa-building text-gold-400 text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-sm text-white">Eventos Corporativos</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PAQUETES Y TARIFAS (S/ 500 A S/ 800) -->
+    <section id="paquetes" class="py-16 sm:py-24 bg-dark-900/80 border-y border-gold-500/20 px-5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-gold-400 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase">Inversión Transparente</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2">
+                    Paquetes y <span class="gold-text-gradient">Tarifas Oficiales</span>
+                </h2>
+                <p class="text-gray-400 text-sm mt-2">Planes diseñados desde S/ 500 hasta S/ 800 según la magnitud de tu evento.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch print-avoid-break">
+                
+                <!-- PAQUETE BÁSICO — S/ 500 SOLES -->
+                <div class="gold-card rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1 rounded-full bg-dark-800 border border-gold-500/35 text-gold-300 text-xs font-bold uppercase tracking-wider">
+                                Plan Esencial
+                            </span>
+                            <i class="fa-solid fa-headphones text-gold-400 text-2xl"></i>
+                        </div>
+
+                        <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white">Paquete Básico</h3>
+                        <p class="text-gray-400 text-sm mt-1">Ideal para reuniones familiares y celebraciones íntimas.</p>
+
+                        <div class="my-6 pb-6 border-b border-dark-700 flex items-baseline gap-1.5">
+                            <span class="text-gold-400 font-bold text-xl">S/</span>
+                            <span class="font-display font-black text-5xl sm:text-6xl text-white">500</span>
+                            <span class="text-gray-400 text-sm ml-1">soles</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm sm:text-base text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span><strong>DJ en vivo</strong> con mezclas personalizadas</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span><strong>Sistema de sonido</strong> profesional nítido</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span><strong>Micrófono inalámbrico</strong> para brindis y anuncios</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span><strong>Iluminación LED</strong> básica ambiental</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span>Hasta <strong>5 horas</strong> de servicio continuo</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="button" onclick="reservarPaqueteWhatsApp('Paquete Básico', 'S/ 500')" 
+                            class="w-full py-4 px-6 rounded-2xl bg-dark-800 hover:bg-gold-400 hover:text-black border border-gold-400/55 text-gold-300 font-display font-bold text-center transition flex items-center justify-center gap-2.5 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Reservar Paquete Básico (S/ 500)</span>
+                    </button>
+                </div>
+
+                <!-- PAQUETE SUPER VIP — S/ 800 SOLES (DESTACADO EN DORADO) -->
+                <div class="bg-gradient-to-b from-dark-800 via-dark-900 to-dark-950 border-2 border-gold-400 rounded-3xl p-8 flex flex-col justify-between shadow-2xl shadow-gold-500/20 relative md:-translate-y-2">
+                    <div class="absolute -top-4 right-6 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-black font-display font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+                        ★ Experiencia Super VIP
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3.5 py-1 rounded-full bg-gold-400/20 border border-gold-400/45 text-gold-300 text-xs font-bold uppercase tracking-wider">
+                                Show Completo
+                            </span>
+                            <i class="fa-solid fa-crown text-gold-400 text-2xl"></i>
+                        </div>
+
+                        <h3 class="font-display font-extrabold text-2xl sm:text-3xl gold-text-gradient">Paquete Super VIP</h3>
+                        <p class="text-gray-300 text-sm mt-1">La experiencia completa de fiesta para bodas, 15 años y promociones.</p>
+
+                        <div class="my-6 pb-6 border-b border-gold-500/25 flex items-baseline gap-1.5">
+                            <span class="text-gold-400 font-bold text-xl">S/</span>
+                            <span class="font-display font-black text-5xl sm:text-6xl gold-text-gradient">800</span>
+                            <span class="text-gray-300 text-sm ml-1">soles</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm sm:text-base text-gray-200 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-star text-gold-400"></i>
+                                <span><strong>DJ en vivo</strong> con consola profesional Pioneer</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-star text-gold-400"></i>
+                                <span><strong>Animador exclusivo</strong> durante todo el evento</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-star text-gold-400"></i>
+                                <span><strong>Sonido de alta potencia</strong> con bajos reforzados</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-star text-gold-400"></i>
+                                <span><strong>Show completo de luces inteligentes</strong>, láser y cámara de humo</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-star text-gold-400"></i>
+                                <span><strong>Hora Loca</strong> incluida con mezcla explosiva</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="button" onclick="reservarPaqueteWhatsApp('Paquete Super VIP', 'S/ 800')" 
+                            class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-black font-display font-extrabold text-center shadow-lg shadow-gold-500/25 hover:brightness-110 transition flex items-center justify-center gap-2.5 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Reservar Paquete Super VIP (S/ 800)</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. GALERÍA INTERACTIVA (3 ESPACIOS PERSONALIZABLES CON FILEREADER) -->
+    <section id="galeria" class="py-16 sm:py-24 px-5 max-w-6xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <div>
+                <span class="text-gold-400 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase">Portafolio Visual</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2">
+                    Galería de <span class="gold-text-gradient">Presentaciones</span>
+                </h2>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-400 no-print">
+                <i class="fa-solid fa-camera text-gold-400 mr-1.5"></i> Toca cualquier recuadro para cargar tus fotos reales desde tu dispositivo.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 print-avoid-break">
+            
+            <!-- Espacio 1 -->
+            <div onclick="seleccionarSlotGaleria(1)" 
+                 class="group relative rounded-3xl overflow-hidden border-2 border-dashed border-gold-500/40 hover:border-gold-400 bg-dark-900 aspect-[3/4] cursor-pointer shadow-2xl transition">
+                <div id="placeholder-1" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-dark-800 to-dark-950">
+                    <div class="w-16 h-16 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+                    <span class="font-display font-black italic text-xl gold-text-gradient">DJ Anthony Mix</span>
+                    <span class="text-xs text-gold-300 tracking-widest uppercase mt-1">Foto Principal #1</span>
+                    <span class="mt-4 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-500/30 text-xs text-gray-300 no-print">
+                        + Subir foto aquí
+                    </span>
+                </div>
+                <img id="preview-img-1" src="" alt="DJ Anthony Mix Perú Foto 1" class="hidden w-full h-full object-cover">
+            </div>
+
+            <!-- Espacio 2 -->
+            <div onclick="seleccionarSlotGaleria(2)" 
+                 class="group relative rounded-3xl overflow-hidden border-2 border-dashed border-gold-500/40 hover:border-gold-400 bg-dark-900 aspect-[3/4] cursor-pointer shadow-2xl transition">
+                <div id="placeholder-2" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-dark-800 to-dark-950">
+                    <div class="w-16 h-16 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <span class="font-display font-black italic text-xl gold-text-gradient">Cabina & Sonido</span>
+                    <span class="text-xs text-gold-300 tracking-widest uppercase mt-1">Equipamiento #2</span>
+                    <span class="mt-4 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-500/30 text-xs text-gray-300 no-print">
+                        + Subir foto aquí
+                    </span>
+                </div>
+                <img id="preview-img-2" src="" alt="DJ Anthony Mx Perú Foto 2" class="hidden w-full h-full object-cover">
+            </div>
+
+            <!-- Espacio 3 -->
+            <div onclick="seleccionarSlotGaleria(3)" 
+                 class="group relative rounded-3xl overflow-hidden border-2 border-dashed border-gold-500/40 hover:border-gold-400 bg-dark-900 aspect-[3/4] cursor-pointer shadow-2xl transition">
+                <div id="placeholder-3" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-dark-800 to-dark-950">
+                    <div class="w-16 h-16 rounded-2xl bg-gold-500/15 border border-gold-400/40 flex items-center justify-center text-gold-400 text-2xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <span class="font-display font-black italic text-xl gold-text-gradient">Show & Luces</span>
+                    <span class="text-xs text-gold-300 tracking-widest uppercase mt-1">Eventos en Vivo #3</span>
+                    <span class="mt-4 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-500/30 text-xs text-gray-300 no-print">
+                        + Subir foto aquí
+                    </span>
+                </div>
+                <img id="preview-img-3" src="" alt="DJ Anthony Mix Perú Foto 3" class="hidden w-full h-full object-cover">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="bg-dark-950 border-t border-gold-500/20 py-14 px-5 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-display font-black italic text-2xl sm:text-4xl gold-text-gradient">
+                DJ Anthony Mix Perú
+            </h2>
+            <p class="text-gold-300 text-xs sm:text-sm tracking-[0.25em] uppercase mt-1 mb-6">
+                PERÚ 🇵🇪 • Mezclas en Vivo & Animación Profesional
+            </p>
+            
+            <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-dark-900 border border-gold-500/30 mb-6">
+                <i class="fa-brands fa-whatsapp text-green-400 text-2xl"></i>
+                <div class="text-left">
+                    <span class="block text-[11px] text-gray-400 uppercase tracking-wider">WhatsApp & Llamadas</span>
+                    <a href="https://wa.me/51954488195" target="_blank" rel="noopener noreferrer" 
+                       class="font-display font-extrabold text-lg text-white hover:text-gold-300 transition">
+                        +51 954 488 195
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-600">
+                © 2026 DJ Anthony Mix Perú. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
+    <a href="https://wa.me/51954488195?text=%C2%A1Hola%20DJ%20Anthony%20Mix%20Per%C3%BA!%20%F0%9F%8E%A7%F0%9F%87%B5%F0%9F%87%AA%20Vi%20tu%20p%C3%A1gina%20web%20y%20deseo%20informaci%C3%B3n%20para%20un%20evento." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar a DJ Anthony Mix Perú por WhatsApp"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-500 hover:bg-green-400 text-white shadow-2xl shadow-green-500/40 flex items-center justify-center text-3xl transition-transform hover:scale-110 no-print">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Notificación Toast (Sin alert()) -->
+    <div id="toastNotification" class="fixed bottom-6 left-6 z-50 max-w-sm bg-dark-800 border border-gold-400 text-gold-300 px-4 py-3 rounded-xl shadow-2xl text-sm font-medium transform translate-y-28 opacity-0 transition-all duration-300 flex items-center gap-2.5 no-print">
+        <i id="toastIcon" class="fa-solid fa-circle-info text-gold-400"></i>
+        <span id="toastText">Notificación</span>
+    </div>
+
+    <!-- LÓGICA JAVASCRIPT (ES6+) -->
+    <script>
+        /**
+         * Configuración global de DJ Anthony Mix Perú
+         */
+        const DJ_ANTHONY_CONFIG = Object.freeze({
+            whatsappNumber: '51954488195',
+            displayPhone: '+51 954 488 195',
+            brandName: 'DJ Anthony Mix Perú'
+        });
+
+        let activeUploadTarget = null; // 'hero' | 1 | 2 | 3
+        const fileInput = document.getElementById('localFileInput');
+
+        /**
+         * Muestra notificaciones visuales elegantes sin usar alert()
+         */
+        function showNotification(message, isError = false) {
+            const toast = document.getElementById('toastNotification');
+            const text = document.getElementById('toastText');
+            const icon = document.getElementById('toastIcon');
+
+            text.textContent = message;
+            if (isError) {
+                toast.classList.replace('border-gold-400', 'border-red-500');
+                toast.classList.replace('text-gold-300', 'text-red-300');
+                icon.className = 'fa-solid fa-triangle-exclamation text-red-400';
+            } else {
+                toast.classList.replace('border-red-500', 'border-gold-400');
+                toast.classList.replace('text-red-300', 'text-gold-300');
+                icon.className = 'fa-solid fa-circle-check text-gold-400';
+            }
+
+            toast.classList.remove('translate-y-29', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-29', 'opacity-0');
+            }, 3500);
+        }
+
+        /**
+         * Desplaza al panel superior de Contacto Rápido y enfoca el campo Nombre
+         */
+        function enfocarContactoSuperior(event) {
+            event.preventDefault();
+            const panel = document.getElementById('panelContactoSuperior');
+            const inputNombre = document.getElementById('quickNombre');
+            
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth' });
+            }
+            setTimeout(() => {
+                if (inputNombre) inputNombre.focus();
+            }, 400);
+        }
+
+        /**
+         * Procesa el formulario superior de Contacto Rápido y abre WhatsApp (+51 954 488 195)
+         */
+        function enviarContactoRapidoWhatsApp(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('quickNombre').value.trim();
+            const telefonoCliente = document.getElementById('quickTelefono').value.trim();
+            const eventoMensaje = document.getElementById('quickEvento').value.trim();
+
+            if (!nombre) {
+                showNotification('Por favor, escribe tu nombre para contactarte.', true);
+                document.getElementById('quickNombre').focus();
+                return;
+            }
+
+            if (!telefonoCliente) {
+                showNotification('Por favor, ingresa tu número de teléfono o WhatsApp.', true);
+                document.getElementById('quickTelefono').focus();
+                return;
+            }
+
+            let mensaje = 
+                `¡Hola *${DJ_ANTHONY_CONFIG.brandName}*! 🎧🇵🇪\n` +
+                `Te escribo desde tu página web oficial:\n\n` +
+                `👤 *Mi Nombre:* ${nombre}\n` +
+                `📱 *Mi Número:* ${telefonoCliente}\n`;
+
+            if (eventoMensaje) {
+                mensaje += `🎉 *Evento / Consulta:* ${eventoMensaje}\n`;
+            }
+
+            mensaje += `\nMe gustaría consultar disponibilidad y paquetes. ¡Gracias!`;
+
+            const urlWhatsApp = `https://wa.me/${DJ_ANTHONY_CONFIG.whatsappNumber}?text=${encodeURIComponent(mensaje)}`;
+            
+            showNotification('Conectando con DJ Anthony Mix Perú por WhatsApp...');
+            window.open(urlWhatsApp, '_blank', 'noopener,noreferrer');
+        }
+
+        /**
+         * Conecta directamente cada tarjeta de paquete (S/ 500 o S/ 800) con WhatsApp
+         */
+        function reservarPaqueteWhatsApp(nombrePaquete, tarifa) {
+            try {
+                const mensaje = 
+                    `¡Hola *${DJ_ANTHONY_CONFIG.brandName}*! 🎧🇵🇪\n` +
+                    `Deseo reservar el siguiente paquete visto en tu presentación web:\n\n` +
+                    `💎 *Paquete Seleccionado:* ${nombrePaquete}\n` +
+                    `💰 *Tarifa:* ${tarifa}\n\n` +
+                    `¿Podrías confirmarme disponibilidad para la fecha de mi evento?`;
+
+                const urlWhatsApp = `https://wa.me/${DJ_ANTHONY_CONFIG.whatsappNumber}?text=${encodeURIComponent(mensaje)}`;
+                window.open(urlWhatsApp, '_blank', 'noopener,noreferrer');
+            } catch (error) {
+                console.error('Error al abrir enlace de WhatsApp:', error);
+                showNotification('No se pudo abrir WhatsApp automáticamente.', true);
+            }
+        }
+
+        /**
+         * Carga dinámica de imágenes locales mediante FileReader API (Fondo y Galería)
+         */
+        function activarSubidaFondo() {
+            activeUploadTarget = 'hero';
+            fileInput.click();
+        }
+
+        function seleccionarSlotGaleria(slotIndex) {
+            activeUploadTarget = slotIndex;
+            fileInput.click();
+        }
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                showNotification('Por favor, selecciona un archivo de imagen válido.', true);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(loadEvent) {
+                const dataUrl = loadEvent.target.result;
+
+                if (activeUploadTarget === 'hero') {
+                    const heroLayer = document.getElementById('heroBackgroundLayer');
+                    heroLayer.style.backgroundImage = `url('${dataUrl}')`;
+                    heroLayer.style.opacity = '0.45';
+                    showNotification('Imagen de fondo actualizada correctamente.');
+                } else if ([1, 2, 3].includes(activeUploadTarget)) {
+                    const imgEl = document.getElementById(`preview-img-${activeUploadTarget}`);
+                    const placeholderEl = document.getElementById(`placeholder-${activeUploadTarget}`);
+                    
+                    if (imgEl && placeholderEl) {
+                        imgEl.src = dataUrl;
+                        imgEl.classList.remove('hidden');
+                        placeholderEl.classList.add('hidden');
+                        showNotification(`Foto #${activeUploadTarget} cargada en tu galería.`);
+                    }
+                }
+            };
+
+            reader.onerror = function() {
+                showNotification('Ocurrió un error al cargar la imagen.', true);
+            };
+
+            reader.readAsDataURL(file);
+            fileInput.value = '';
+        });
+
+        /**
+         * Exportación limpia a documento PDF
+         */
+        function guardarDocumentoPDF() {
+            showNotification('Preparando presentación en PDF...');
+            setTimeout(() => {
+                window.print();
+            }, 350);
+        }
+    </script>
+</body>
+</html>
